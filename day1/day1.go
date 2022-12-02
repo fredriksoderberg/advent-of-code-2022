@@ -10,7 +10,7 @@ import (
 )
 
 func main() {
-	readFile, err := os.Open("input_day1.txt")
+	readFile, err := os.Open("./day1/input_day1.txt")
 	if err != nil {
 		fmt.Println(err)
 	}
@@ -31,6 +31,7 @@ func main() {
 	fmt.Println(cast.ToString(max[0]))
 	top3 := max[0] + max[1] + max[2]
 	fmt.Println(cast.ToString(top3))
+	readFile.Close()
 }
 
 func addAndSort(val int, vals []int) []int {
