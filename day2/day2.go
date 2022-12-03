@@ -9,7 +9,9 @@ import (
 )
 
 func main() {
-	readFile, err := os.Open("./day2/input_day2.txt")
+	plays := make([]string, 0)
+
+	readFile, err := os.Open("./day2/input.txt")
 	if err != nil {
 		fmt.Println(err)
 	}
@@ -17,24 +19,24 @@ func main() {
 	fileScanner := bufio.NewScanner(readFile)
 	fileScanner.Split(bufio.ScanLines)
 
-	total := 0
 	for fileScanner.Scan() {
-		gc, err := playScore(fileScanner.Text())
+		plays = append(plays, fileScanner.Text())
+	}
+
+	readFile.Close()
+
+	total := 0
+	for _, play := range plays {
+		gc, err := playScore(play)
 		if err != nil {
-			panic("myPlay score")
+			panic("play score")
 		}
 		total += gc
 	}
 	fmt.Println(cast.ToString(total))
-	readFile.Close()
-
-	readFile, err = os.Open("./day2/input_day2.txt")
-	fileScanner = bufio.NewScanner(readFile)
-	fileScanner.Split(bufio.ScanLines)
 
 	total = 0
-	for fileScanner.Scan() {
-		play := fileScanner.Text()
+	for _, play := range plays {
 		p, err := myPlay(play)
 		if err != nil {
 			panic("my play")
@@ -95,6 +97,6 @@ func myPlay(opplay string) (string, error) {
 	case "C Z":
 		return "C X", nil
 	default:
-		return "", fmt.Errorf("unknown myPlay %v", opplay)
+		return "", fmt.Errorf("unknown opplay %v", opplay)
 	}
 }
