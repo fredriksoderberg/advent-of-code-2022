@@ -25,7 +25,7 @@ func main() {
 			max = addAndSort(current, max)
 			current = 0
 		} else {
-			current += cast.ToInt(fileScanner.Text())
+			current += cast.StringToInt(fileScanner.Text())
 		}
 	}
 	fmt.Println(cast.ToString(max[0]))

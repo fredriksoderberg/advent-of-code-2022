@@ -77,9 +77,9 @@ func emptyCrate(crate string) bool {
 }
 
 func parseMoves(move string) (count int, origin int, dest int) {
-	count = cast.ToInt(strings.Split(strings.Split(move, " from ")[0], "move ")[1])
-	origin = cast.ToInt(strings.Split(strings.Split(move, " from ")[1], " to ")[0])
-	dest = cast.ToInt(strings.Split(strings.Split(move, " from ")[1], " to ")[1])
+	count = cast.StringToInt(strings.Split(strings.Split(move, " from ")[0], "move ")[1])
+	origin = cast.StringToInt(strings.Split(strings.Split(move, " from ")[1], " to ")[0])
+	dest = cast.StringToInt(strings.Split(strings.Split(move, " from ")[1], " to ")[1])
 	return
 }
 

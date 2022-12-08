@@ -30,10 +30,10 @@ func main() {
 	for _, sec := range sections {
 		sec1 := strings.Split(sec, ",")[0]
 		sec2 := strings.Split(sec, ",")[1]
-		start1 := cast.ToInt(strings.Split(sec1, "-")[0])
-		end1 := cast.ToInt(strings.Split(sec1, "-")[1])
-		start2 := cast.ToInt(strings.Split(sec2, "-")[0])
-		end2 := cast.ToInt(strings.Split(sec2, "-")[1])
+		start1 := cast.StringToInt(strings.Split(sec1, "-")[0])
+		end1 := cast.StringToInt(strings.Split(sec1, "-")[1])
+		start2 := cast.StringToInt(strings.Split(sec2, "-")[0])
+		end2 := cast.StringToInt(strings.Split(sec2, "-")[1])
 		if fullyOverlap(start1, end1, start2, end2) {
 			total++
 		}
@@ -44,10 +44,10 @@ func main() {
 	for _, sec := range sections {
 		sec1 := strings.Split(sec, ",")[0]
 		sec2 := strings.Split(sec, ",")[1]
-		start1 := cast.ToInt(strings.Split(sec1, "-")[0])
-		end1 := cast.ToInt(strings.Split(sec1, "-")[1])
-		start2 := cast.ToInt(strings.Split(sec2, "-")[0])
-		end2 := cast.ToInt(strings.Split(sec2, "-")[1])
+		start1 := cast.StringToInt(strings.Split(sec1, "-")[0])
+		end1 := cast.StringToInt(strings.Split(sec1, "-")[1])
+		start2 := cast.StringToInt(strings.Split(sec2, "-")[0])
+		end2 := cast.StringToInt(strings.Split(sec2, "-")[1])
 		if anyOverlap(start1, end1, start2, end2) {
 			total++
 		}
